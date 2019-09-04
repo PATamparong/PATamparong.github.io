@@ -1,0 +1,104 @@
+<html>
+<head>
+  <title>mows</title>
+</head>
+
+<style>
+  * {
+    box-sizing: content-box;
+  }
+  body{
+    background-size: cover;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvpmXrqx1WZd-MvCjzEZcOnnQ4MpUTPQQikA0ElduXkqgSeQiXjA");
+  }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column {
+    float: left;
+    width: 27.33%;
+    padding: 10px;
+    height: 200px;
+    margin: 30px;
+  }
+  button:hover{
+    background-color: orangered;
+  }
+  button{
+    width:60px;
+    height: 30px;
+  }
+  .input {
+    block-size: 30px;
+    width: 366px;
+    background-color: lightgrey;
+    
+  }
+  .area{
+    height:100px;
+    width:1343px;
+    background-color:lightblue;
+  }
+  .P{
+    font-family: cursive;
+    background-color: orange;
+    padding:10px
+  }
+  .P1{
+    font-family: cursive;
+    background-color:aqua;
+    padding:10px
+  }
+  h1{
+    background-color: royalblue;
+    padding:10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  }
+  .payload{
+    block-size: 30px;
+    width: 366px;
+    background-color: lightgrey;
+  }
+</style>
+
+<body>
+  <center>
+  <h1>MQTT</h1>
+  <p>My MQTT Web App</p>
+</body>
+<div class="row">
+  <div class="column" style="background-color:transparent">
+      <p class="p">CONNECT TO:</p>
+    <input class="input" placeholder="Address">
+    <br><br>
+  <button id="btn-connect">connect</button>
+  <button id="btn-disconnect">disconnect</button>
+  </div>
+
+  <div class="column" style="background-color:transparent">
+      <p class="p">PUBLISH MESSAGE:</p>
+      <input id="pubInput" class="input"placeholder="Topic">
+      <br><br>
+      <input id="pubPayload" class="payload" placeholder="payload">
+      <br><br>
+  <button id="btn-publish">publish</button>
+  </div>
+
+  <div class="column" style="background-color:transparent">
+    <p class="p">SUBSCRIBE:</p>
+    <input id="subInput" class="input" placeholder="Topic">
+    <br><br>
+  <button id=btn-subscribe>subscribe</button>
+  </div>
+</div>
+
+<div>
+  <p class="p1">Message:</p>
+  <textarea class="area" id="messageArea" placeholder="messages will appear here.."></textarea>
+</div>
+</center>
+<script src="scripts/browserMqtt.js"></script>
+<script src="scripts/controller.js"></script>
+</html>
