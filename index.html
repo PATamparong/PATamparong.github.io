@@ -93,11 +93,21 @@
   <button id=btn-subscribe>subscribe</button>
   </div>
 </div>
-
-<div>
+<table class="area" id="messageArea">
+<thead>
+  <tr>
+    <th>Topic</th>
+    <th>Message</th>
+    <th>Date and Time</th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+<!-- <div>
   <p class="p1">Message:</p>
   <textarea class="area" id="messageArea" placeholder="messages will appear here.."></textarea>
-</div>
+</div> -->
+</table>
 </center>
 <script src="scripts/browserMqtt.js"></script>
 <script src="scripts/controller.js"></script>
