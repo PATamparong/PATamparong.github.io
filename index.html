@@ -24,11 +24,15 @@
     margin: 30px;
   }
   button:hover{
-    background-color: orangered;
+    background-color:orange;
   }
   button{
-    width:60px;
-    height: 30px;
+    width:90px;
+    height: 25px;
+    color:mediumblue;
+    background-color:transparent;
+    border:solid;
+    border-color:orange;
   }
   .input {
     block-size: 30px;
@@ -37,9 +41,12 @@
     
   }
   .area{
-    height:100px;
+    height:150px;
     width:1343px;
-    background-color:lightblue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color:rgb(23, 75, 219);
+    background-color:aqua;
   }
   .P{
     font-family: cursive;
@@ -73,8 +80,8 @@
       <p class="p">CONNECT TO:</p>
     <input class="input" placeholder="Address">
     <br><br>
-  <button id="btn-connect">connect</button>
-  <button id="btn-disconnect">disconnect</button>
+  <button id="btn-connect">CONNECT</button>
+  <button id="btn-disconnect">DISCONNECT</button>
   </div>
 
   <div class="column" style="background-color:transparent">
@@ -83,14 +90,14 @@
       <br><br>
       <input id="pubPayload" class="payload" placeholder="payload">
       <br><br>
-  <button id="btn-publish">publish</button>
+  <button id="btn-publish">PUBLISH</button>
   </div>
 
   <div class="column" style="background-color:transparent">
     <p class="p">SUBSCRIBE:</p>
     <input id="subInput" class="input" placeholder="Topic">
     <br><br>
-  <button id=btn-subscribe>subscribe</button>
+  <button id=btn-subscribe>SUBSCRIBE</button>
   </div>
 </div>
 <table class="area" id="messageArea">
