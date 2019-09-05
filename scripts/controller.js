@@ -6,7 +6,8 @@ var btnConnect = document.getElementById('btn-connect');
 var btnDisconnect = document.getElementById('btn-disconnect');
 var btnPublish = document.getElementById('btn-publish');
 var btnSubscribe = document.getElementById('btn-subscribe');
-// var topic = document.getElementById('subInput');
+var btnunSubscribe = document.getElementById('btn-unSubscribe');
+var topic = document.getElementById('subInput');
 // var payload = document.getElementById('pubPayload');
 var message = document.getElementById('messageArea');
 // client.on("connect", function(){
@@ -65,6 +66,18 @@ btnSubscribe.addEventListener('click',function(d){
     }
   })
 })
+
+btnunSubscribe.addEventListener('click',function(d){
+  d.preventdefault;
+  client.unsubscribe(document.getElementById('subInput').value , function (err){
+    if (err){
+      console.log(err);
+    } else {
+      console.log("unsubscribe to the topic ");
+    }
+  })
+})
+
 
 message.addEventListener("contextmenu",function(y){
   y.preventDefault;

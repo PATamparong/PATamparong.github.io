@@ -24,11 +24,15 @@
     margin: 30px;
   }
   button:hover{
-    background-color: orangered;
+    background-color:orange;
   }
   button{
-    width:60px;
-    height: 30px;
+    width:90px;
+    height: 25px;
+    color:mediumblue;
+    background-color:transparent;
+    border:solid;
+    border-color:orange;
   }
   .input {
     block-size: 30px;
@@ -37,9 +41,13 @@
     
   }
   .area{
-    height:100px;
-    width:1343px;
-    background-color:lightblue;
+    height:150px;
+    width:1351px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding:5px;
+    font-size: 20px;
+    color:rgb(23, 75, 219);
+    background-color:aqua;
   }
   .P{
     font-family: cursive;
@@ -51,6 +59,12 @@
     background-color:aqua;
     padding:10px
   }
+  .p2{
+      font-family:cursive;
+      font-style: italic;
+      font-size: 20px;
+      color:orangered;
+  }
   h1{
     background-color: royalblue;
     padding:10px;
@@ -61,43 +75,68 @@
     width: 366px;
     background-color: lightgrey;
   }
+  .add{
+    text-align: left;
+    color:blue;
+  }
 </style>
 
 <body>
   <center>
   <h1>MQTT</h1>
-  <p>My MQTT Web App</p>
+  <p class="p2" >My MQTT Web App</p>
 </body>
 <div class="row">
   <div class="column" style="background-color:transparent">
       <p class="p">CONNECT TO:</p>
-    <input class="input" placeholder="Address">
+    <div class="add"> 
+    Address:<br>
+    <input class="input" value="wss://test.mosquitto.org:8081/mqtt">
     <br><br>
-  <button id="btn-connect">connect</button>
-  <button id="btn-disconnect">disconnect</button>
+    </div>
+  <button id="btn-connect">CONNECT</button>
+  <button id="btn-disconnect">DISCONNECT</button>
   </div>
 
   <div class="column" style="background-color:transparent">
       <p class="p">PUBLISH MESSAGE:</p>
+      <div class="add">
+      Topic:<br>
       <input id="pubInput" class="input"placeholder="Topic">
-      <br><br>
+      <br>
+      Payload:<br>
       <input id="pubPayload" class="payload" placeholder="payload">
       <br><br>
-  <button id="btn-publish">publish</button>
+      </div>
+  <button id="btn-publish">PUBLISH</button>
   </div>
 
   <div class="column" style="background-color:transparent">
     <p class="p">SUBSCRIBE:</p>
+    <div class="add">
+    Topic: <br>
     <input id="subInput" class="input" placeholder="Topic">
     <br><br>
-  <button id=btn-subscribe>subscribe</button>
+    </div>
+  <button id=btn-subscribe>SUBSCRIBE</button>
+  <button id=btn-unSubscribe>UNSUBSCRIBE</button>
   </div>
 </div>
-
-<div>
+<table class="area" id="messageArea">
+<thead>
+  <tr>
+    <th>Topic</th>
+    <th>Message</th>
+    <th>Date and Time</th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+<!-- <div>
   <p class="p1">Message:</p>
   <textarea class="area" id="messageArea" placeholder="messages will appear here.."></textarea>
-</div>
+</div> -->
+</table>
 </center>
 <script src="scripts/browserMqtt.js"></script>
 <script src="scripts/controller.js"></script>
