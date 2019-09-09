@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html>
+
 <head>
   <title>mows</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <style>
@@ -49,7 +52,7 @@
     color:rgb(23, 75, 219);
     background-color:aqua;
   }
-  .P{
+  .p{
     font-family: cursive;
     background-color: orange;
     padding:10px
@@ -79,65 +82,87 @@
     text-align: left;
     color:blue;
   }
+  .table  {
+	width: 80%;
+	margin:auto;
+	border-radius: 25px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+	padding: 30px;
+	background-color:transparent;
+	position: relative;
+	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+}
+
+td, th {
+    width: 4%;
+    text-align: center;
+    padding: 10px;
+}
+thead{
+	background-color:aqua;
+}
 </style>
 
 <body>
   <center>
-  <h1>MQTT</h1>
-  <p class="p2" >My MQTT Web App</p>
-</body>
-<div class="row">
-  <div class="column" style="background-color:transparent">
-      <p class="p">CONNECT TO:</p>
-    <div class="add"> 
-    Address:<br>
-    <input class="input" value="wss://test.mosquitto.org:8081/mqtt">
-    <br><br>
-    </div>
-  <button id="btn-connect">CONNECT</button>
-  <button id="btn-disconnect">DISCONNECT</button>
-  </div>
 
-  <div class="column" style="background-color:transparent">
-      <p class="p">PUBLISH MESSAGE:</p>
-      <div class="add">
-      Topic:<br>
-      <input id="pubInput" class="input"placeholder="Topic">
-      <br>
-      Payload:<br>
-      <input id="pubPayload" class="payload" placeholder="payload">
-      <br><br>
+    <h1>MQTT</h1>
+    <p class="p2">My MQTT Web App</p>
+
+    <div class="row">
+      <div class="column" style="background-color:transparent">
+        <p class="p">CONNECT TO:</p>
+        <div class="add">
+          Address:<br>
+          <input class="input" id="address" value="wss://test.mosquitto.org:8081/mqtt">
+          <br><br>
+        </div>
+        <button type="button" id="btn-connect">CONNECT</button>
+        <button type="button" id="btn-disconnect">DISCONNECT</button>
       </div>
-  <button id="btn-publish">PUBLISH</button>
-  </div>
 
-  <div class="column" style="background-color:transparent">
-    <p class="p">SUBSCRIBE:</p>
-    <div class="add">
-    Topic: <br>
-    <input id="subInput" class="input" placeholder="Topic">
-    <br><br>
+      <div class="column" style="background-color:transparent">
+        <p class="p">PUBLISH MESSAGE:</p>
+        <div class="add">
+          Topic:<br>
+          <input id="pubInput" class="input" placeholder="Topic">
+          <br>
+          Payload:<br>
+          <input id="pubPayload" class="payload" placeholder="payload">
+          <br><br>
+        </div>
+        <button type="button" id="btn-publish">PUBLISH</button>
+      </div>
+
+      <div class="column" style="background-color:transparent">
+        <p class="p">SUBSCRIBE:</p>
+        <div class="add">
+          Topic: <br>
+          <input id="subInput" class="input" placeholder="Topic">
+          <br><br>
+        </div>
+        <button type="button" id=btn-subscribe>SUBSCRIBE</button>
+        <button type="button" id=btn-unSubscribe>UNSUBSCRIBE</button>
+      </div>
     </div>
-  <button id=btn-subscribe>SUBSCRIBE</button>
-  <button id=btn-unSubscribe>UNSUBSCRIBE</button>
-  </div>
-</div>
-<table class="area" id="messageArea">
-<thead>
-  <tr>
-    <th>Topic</th>
-    <th>Message</th>
-    <th>Date and Time</th>
-  </tr>
-  </thead>
-  <tbody>
-  </tbody>
-<!-- <div>
-  <p class="p1">Message:</p>
-  <textarea class="area" id="messageArea" placeholder="messages will appear here.."></textarea>
-</div> -->
-</table>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Message</th>
+          <th>Date and Time</th>
+        </tr>
+      </thead>
+      <tbody id="messageArea">
+      </tbody>
+    </table>
+
 </center>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs="
+  crossorigin="anonymous"></script>
 <script src="scripts/browserMqtt.js"></script>
 <script src="scripts/controller.js"></script>
+
 </html>

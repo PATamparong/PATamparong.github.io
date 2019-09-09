@@ -1,88 +1,55 @@
 // basic functionalities
-// client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")
-// client.subscribe("mqtt/demo")
 var client;
 var btnConnect = document.getElementById('btn-connect');
 var btnDisconnect = document.getElementById('btn-disconnect');
 var btnPublish = document.getElementById('btn-publish');
 var btnSubscribe = document.getElementById('btn-subscribe');
-var btnunSubscribe = document.getElementById('btn-unSubscribe');
-var topic = document.getElementById('subInput');
-// var payload = document.getElementById('pubPayload');
-var message = document.getElementById('messageArea');
-// client.on("connect", function(){
-//     console.log("Successfully connected");
-// })
 
-// client.on("message", function (topic, payload) {
-//   console.log([topic, payload].join(": "));
-//   client.end();
-// })
-
-// client.publish("mqtt/demo", "hello world!")
-btnConnect.addEventListener('click', function(e){
+//connect button
+btnConnect.addEventListener('click', function (e) {
   e.preventDefault;
   console.log("connected ")
-  client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")
-  client.on("connect", function(){
-      console.log("Successfully connected");
-   })
-  
-  client.on("message", function (topic, payload) {
-  console.log("Received { topic: " + topic + "; payload: "+ payload+"}");
-  client.end();
-})
+  var address = document.getElementById('address').value;
+  client = mqtt.connect(address);
+  client.on("connect", function () {
+    alert("Successfully connected");
+  })
+});
 
-})
-
-btnDisconnect.addEventListener('click', function(e){
+//disconnect button
+btnDisconnect.addEventListener('click', function (e) {
   e.preventDefault;
-  console.log("disconnected ")
-  client.end("connect", function(){
-      console.log("you disconnected");
-   })
+  client.end("connect", function () {
+    alert("you disconnected");
+  })
 })
 
-btnPublish.addEventListener('click',function(c){
+//publish button
+btnPublish.addEventListener('click', function (c) {
   c.preventDefault;
-  client.publish(document.getElementById('pubInput').value, document.getElementById('pubPayload').value, function(err){
-      if (err){
-        console.log(err)
-      } else {
-        console.log("Published { topic: " + document.getElementById('pubInput').value
-        + "; payload: " + document.getElementById('pubPayload').value + " }");
-      }
-    })
+  var Stopic = document.getElementById('pubInput').value;
+  var Spayload = document.getElementById('pubPayload').value;
+  var data = '<tr>' + '<td>' + Stopic + '</td>' + '<td>' + Spayload + '</td>' + '<td>' + moment().format('MMMM Do YYYY, h:mm:ss a') + '</td>' + '</tr>';
+  $('#messageArea').prepend(data);
+
+  client.on("message", function (topic, payload) {
+    console.log("Received { topic: " + topic + "; payload: " + payload + "}");
+  });
+  client.publish(topic, payload);
+
 
 })
 
-btnSubscribe.addEventListener('click',function(d){
+//subscribe button
+btnSubscribe.addEventListener('click', function (d) {
   d.preventDefault;
-  client.subscribe(document.getElementById('subInput').value , function (err){
-    if (err){
-      console.log(err);
-    } else {
-      console.log("Subscribe { topic: " + document.getElementById('subInput').value + " }");
-    }
-  })
-})
-
-btnunSubscribe.addEventListener('click',function(d){
-  d.preventdefault;
-  client.unsubscribe(document.getElementById('subInput').value , function (err){
-    if (err){
-      console.log(err);
-    } else {
-      console.log("unsubscribe to the topic ");
-    }
+  var topic = document.getElementById('pubInput').value;
+  client.subscribe(topic, function () {
+    console.log("Subscribe { topic: " + document.getElementById('subInput').value + " }");
   })
 })
 
 
-message.addEventListener("contextmenu",function(y){
-  y.preventDefault;
-
-})
 // // advance functionalities
 // client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")
 // client.subscribe("mqtt/demo", function (err){
