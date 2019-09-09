@@ -45,7 +45,11 @@
   }
   .area{
     height:150px;
+<<<<<<< HEAD
     width:1351px;
+=======
+    width:1582px;
+>>>>>>> 153eaf0e48aafd09bff6eaf57f2d8cf6b2b07ad7
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding:5px;
     font-size: 20px;
@@ -105,6 +109,7 @@ thead{
 
 <body>
   <center>
+<<<<<<< HEAD
 
     <h1>MQTT</h1>
     <p class="p2">My MQTT Web App</p>
@@ -158,11 +163,60 @@ thead{
       </tbody>
     </table>
 
+=======
+  <h1>MQTT</h1>
+  <p class="p2" >My MQTT Web App</p>
+</body>
+<div class="row">
+  <div class="column" style="background-color:transparent">
+      <p class="p">CONNECT TO:</p>
+    <input class="input" placeholder="Address">
+    <br><br>
+  <button id="btn-connect">CONNECT</button>
+  <button id="btn-disconnect">DISCONNECT</button>
+  </div>
+
+  <div class="column" style="background-color:transparent">
+      <p class="p">PUBLISH MESSAGE:</p>
+      <input id="pubInput" class="input"placeholder="Topic">
+      <br><br>
+      <input id="pubPayload" class="payload" placeholder="payload">
+      <br><br>
+  <button id="btn-publish">PUBLISH</button>
+  </div>
+
+  <div class="column" style="background-color:transparent">
+    <p class="p">SUBSCRIBE:</p>
+    <input id="subInput" class="input" placeholder="Topic">
+    <br><br>
+  <button id=btn-subscribe>SUBSCRIBE</button>
+  </div>
+</div>
+<table class="area" id="messageArea">
+<thead>
+  <tr>
+    <th>Topic</th>
+    <th>Message</th>
+    <th>Date and Time</th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+<!-- <div>
+  <p class="p1">Message:</p>
+  <textarea class="area" id="messageArea" placeholder="messages will appear here.."></textarea>
+</div> -->
+</table>
+>>>>>>> 153eaf0e48aafd09bff6eaf57f2d8cf6b2b07ad7
 </center>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs="
   crossorigin="anonymous"></script>
 <script src="scripts/browserMqtt.js"></script>
 <script src="scripts/controller.js"></script>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+>>>>>>> 153eaf0e48aafd09bff6eaf57f2d8cf6b2b07ad7
